@@ -102,7 +102,8 @@ vcs import ~/ws_px4/src < px4_ros2_controllers.repos
 This clones into `~/ws_px4/src/`:
 - `quad_platforms` — platform configs (motor curves, mass, etc.) for sim and hardware
 - `quad_trajectories` — trajectory definitions (hover, circle, helix, figure-8, ...)
-- `ROS2Logger` — CSV logging utility (used by nmpc)
+- `ROS2Logger` — CSV logging utility (used by newton_raphson, nmpc)
+- `newton_raphson_px4` — Newton-Raphson Flow controller
 - `geometric_px4` — Geometric controller
 - `nmpc_acados_px4` — Nonlinear MPC controller (requires acados, see note below)
 
@@ -179,6 +180,7 @@ ros2 run newton_raphson_px4 run_node --platform sim --trajectory circle_horz
 
 | Controller | Package | Entry point | Key args |
 |---|---|---|---|
+| Newton-Raphson Flow | `newton_raphson_px4` | `run_node` | `--platform`, `--trajectory`, `--hover-mode` |
 | Geometric | `geometric_px4` | `run_node` | `--platform`, `--trajectory` |
 | NMPC (acados) | `nmpc_acados_px4` | `run_node` | `--platform`, `--trajectory` |
 
